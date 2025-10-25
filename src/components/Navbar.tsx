@@ -7,8 +7,15 @@ import {
   SheetContent,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import { WHATSAPP_NUMBER } from '@/lib/config';
 
 const Navbar = () => {
+  const handleCartClick = () => {
+    const message = "Hi, I'd like to place an order. Can you help me?";
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
@@ -21,6 +28,9 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
+          <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">
+            Home
+          </Link>
           <Link to="/women" className="text-sm font-medium hover:text-primary transition-colors">
             Women
           </Link>
@@ -45,7 +55,13 @@ const Navbar = () => {
             </div>
           </div>
           
-          <Button variant="ghost" size="icon" className="relative">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="relative"
+            onClick={handleCartClick}
+            aria-label="Contact us on WhatsApp"
+          >
             <ShoppingBag className="h-5 w-5" />
           </Button>
 
@@ -66,6 +82,9 @@ const Navbar = () => {
                     className="pl-8"
                   />
                 </div>
+                <Link to="/" className="text-lg font-medium hover:text-primary transition-colors">
+                  Home
+                </Link>
                 <Link to="/women" className="text-lg font-medium hover:text-primary transition-colors">
                   Women
                 </Link>

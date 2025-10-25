@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { MessageCircle, Minus, Plus } from 'lucide-react';
 import { getProductById } from '@/lib/products';
 import { toast } from 'sonner';
+import { WHATSAPP_NUMBER } from '@/lib/config';
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -35,9 +36,8 @@ const ProductDetail = () => {
       return;
     }
 
-    const whatsappNumber = "1234567890"; // Replace with actual number
-    const message = `Hi, I'm interested in buying ${product.name} in ${selectedColor}, Size ${selectedSize}, Quantity ${quantity}. Please confirm availability.`;
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    const message = `Hi, I'm interested in buying ${product.name} — Color: ${selectedColor}, Size: ${selectedSize}, Quantity: ${quantity}. Please confirm availability.`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     
     window.open(whatsappUrl, '_blank');
   };

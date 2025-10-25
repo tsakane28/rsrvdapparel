@@ -1,7 +1,7 @@
 import { MessageCircle, Instagram, Facebook, Twitter } from 'lucide-react';
+import { WHATSAPP_NUMBER, WHATSAPP_DISPLAY } from '@/lib/config';
 
 const Footer = () => {
-  const whatsappNumber = "1234567890"; // Replace with actual number
 
   return (
     <footer className="border-t bg-muted/30 mt-20">
@@ -34,12 +34,12 @@ const Footer = () => {
               <li className="flex items-center gap-2">
                 <MessageCircle className="h-4 w-4" />
                 <a 
-                  href={`https://wa.me/${whatsappNumber}`}
+                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors"
                 >
-                  WhatsApp: +{whatsappNumber}
+                  WhatsApp: {WHATSAPP_DISPLAY}
                 </a>
               </li>
               <li>Email: info@rsrvdapparel.com</li>
